@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import styles from '../App.module.css'
-import { useModal } from "../contexts/modal.context";
+import { useModal } from "contexts";
+import styles from './character.module.css'
 
 const CharacterModal = ({ character }) => {
     const [origin, setOrigin] = useState({});

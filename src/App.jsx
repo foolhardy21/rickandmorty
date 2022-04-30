@@ -1,12 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import CharacterCard from "./components/CharacterCard";
-import Header from "./components/Header";
-import PaginationNav from "./components/PaginationNav";
-import styles from './App.module.css'
-import { useModal } from "./contexts/modal.context";
-import CharacterModal from "./components/CharacterModal";
-import { usePage } from "./contexts/page.context";
+import { Header } from "components/Header";
+import { PaginationNav } from "components/Nav";
+import { CharacterCard, CharacterModal } from "components/Character";
+import { usePage, useModal } from "contexts";
+import styles from 'components/Character/character.module.css'
 
 const App = () => {
   const [characters, setCharacters] = useState([])
@@ -22,9 +20,6 @@ const App = () => {
 
   return (
     <div
-      style={{
-        minHeight: "100vh"
-      }}
     >
       <Header />
       <PaginationNav />
