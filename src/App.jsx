@@ -12,10 +12,17 @@ const App = () => {
   const { modal } = useModal()
   const { pgNumber } = usePage()
 
+  /**
+   * this effect calls the API for the current pgNumber and sets the characters state to response.data, whenever the pgNumber is updated
+   */
   useEffect(() => {
     (async () => {
-      const response = await axios.get(`${API_GET_CHARACTERS}${pgNumber}`)
-      setCharacters(response.data.results)
+      try {
+        const response = await axios.get(`${API_GET_CHARACTERS}${pgNumber}`)
+        setCharacters(response.data.results)
+      } catch (e) {
+        console.log(e.status)
+      }
     })()
   }, [pgNumber])
 
@@ -24,11 +31,17 @@ const App = () => {
     >
       <Header />
       <PaginationNav />
+
+      {/* grid fo character cards */}
+
       <section className={`grid grid-maxcols-4 ${styles.cardsGrid} mg-s`}>
         {
           characters?.map(char => <CharacterCard key={char.id} character={char} />)
         }
       </section>
+
+      {/* modal for detailed character info */}
+
       {
         modal.visible && <CharacterModal character={modal.value} />
       }

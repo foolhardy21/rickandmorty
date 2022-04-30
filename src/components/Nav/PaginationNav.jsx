@@ -31,6 +31,7 @@ const PaginationNav = () => {
                         prev
                     </button>
                 }
+                {/* the callback function inside map gets the page numbers that are more or less by 5 than the current page number selected */}
                 {
                     pgNumbers.map(num => (num > pgNumber + 5 || num < pgNumber - 5) ? '' : <button key={num} value={num} onClick={handlePgNumClick} className={`${num === pgNumber ? 'btn-solid bg-secondary txt-secondary' : 'btn-outlined b-solid b-primary txt-primary bg-primary'}  txt-md pd-xs mg-right-xs`}>
                         {num}
