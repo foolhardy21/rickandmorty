@@ -1,41 +1,12 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
 import styles from '../App.module.css'
+import { useModal } from "../contexts/modal.context";
 
 const CharacterCard = ({ character }) => {
-    const [origin, setOrigin] = useState({});
-    const [location, setLocation] = useState({});
-    const [episodes, setEpisodes] = useState([]);
+    const { setModal } = useModal()
 
-    useEffect(() => {
-        (async () => {
-            if (Object.keys(character).length > 0) {
-                const response = await axios.get(character.origin.url);
-                setOrigin(response.data);
-            }
-        })();
-    }, [character]);
-
-    useEffect(() => {
-        (async () => {
-            if (Object.keys(character).length > 0) {
-                const response = await axios.get(character.location.url);
-                setLocation(response.data);
-            }
-        })();
-    }, [character])
-
-    useEffect(() => {
-        (async () => {
-            if (Object.keys(character).length > 0) {
-                const episodeNames = await Promise.allSettled(character.episode.map(async (ep) => {
-                    const response = await axios.get(ep);
-                    return response.data.name;
-                }));
-                setEpisodes(episodeNames.map(ep => ep.value));
-            }
-        })();
-    }, [character]);
+    const handleMoreClick = () => {
+        setModal(m => ({ ...m, visible: true, value: character }))
+    }
 
     return (
         <article className={` ${styles.characterCard} card-shadow-xs pd-xs`}>
@@ -53,19 +24,14 @@ const CharacterCard = ({ character }) => {
                 <div className="flx flx-column">
                     <p className="txt-md txt-300 txt-off-primary txt-cap mg-btm-xs">last location</p>
                     <p className="txt-md txt-primary txt-cap">{character?.location?.name}</p>
-                    <p className="txt-md txt-primary txt-cap">{location?.residents?.length} residents</p>
                 </div>
                 <div className="flx flx-column">
                     <p className="txt-md txt-300 txt-off-primary txt-cap mg-btm-xs">origins</p>
                     <p className="txt-md txt-primary txt-cap">{character?.origin?.name}</p>
-                    <p className="txt-md txt-primary txt-cap">{origin?.residents?.length} residents</p>
                 </div>
             </div>
-            <div className="flx flx-column mg-top-s">
-                <p className="txt-md txt-300 txt-off-primary txt-cap mg-btm-xs">
-                    {`${character.name}'s first episode`}
-                </p>
-                <p className="txt-md txt-primary txt-cap">{episodes[0]}</p>
+            <div className="flx flx-maj-end mg-top-s">
+                <button onClick={handleMoreClick} className="btn-solid bg-secondary txt-secondary txt-md txt-cap pd-xs">more</button>
             </div>
         </article>
     );

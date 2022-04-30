@@ -4,9 +4,12 @@ import CharacterCard from "./components/CharacterCard";
 import Header from "./components/Header";
 import PaginationNav from "./components/PaginationNav";
 import styles from './App.module.css'
+import { useModal } from "./contexts/modal.context";
+import CharacterModal from "./components/CharacterModal";
 
 const App = () => {
   const [characters, setCharacters] = useState([])
+  const { modal } = useModal()
 
   useEffect(() => {
     (async () => {
@@ -28,6 +31,9 @@ const App = () => {
           characters?.map(char => <CharacterCard key={char.id} character={char} />)
         }
       </section>
+      {
+        modal.visible && <CharacterModal character={modal.value} />
+      }
     </div>
   );
 };
