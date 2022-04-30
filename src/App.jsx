@@ -95,7 +95,7 @@ const App = () => {
             </div>
           </div>
           <div className="flx flx-column mg-top-s">
-            <p className="txt-md txt-primary txt-cap">
+            <p className="txt-md txt-300 txt-primary txt-cap">
               episodes
             </p>
             <ul className="flx">
