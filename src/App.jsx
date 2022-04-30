@@ -5,6 +5,7 @@ import { PaginationNav } from "components/Nav";
 import { CharacterCard, CharacterModal } from "components/Character";
 import { usePage, useModal } from "contexts";
 import styles from "components/Character/character.module.css";
+import { API_GET_CHARACTERS } from "utils";
 
 const App = () => {
   const [characters, setCharacters] = useState([])
@@ -13,7 +14,7 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await axios.get(`https://rickandmortyapi.com/api/character?page=${pgNumber}`)
+      const response = await axios.get(`${API_GET_CHARACTERS}${pgNumber}`)
       setCharacters(response.data.results)
     })()
   }, [pgNumber])

@@ -1,8 +1,9 @@
 import { usePage } from "contexts";
+import { PAGE_LIMIT } from "utils";
 import styles from "./nav.module.css";
 
 let pgNumbers = []
-for (let i = 1; i <= 42; i++) {
+for (let i = 1; i <= PAGE_LIMIT; i++) {
     pgNumbers[i] = i
 }
 
@@ -36,11 +37,11 @@ const PaginationNav = () => {
                     </button>)
                 }
                 {
-                    pgNumber < 42 &&
+                    pgNumber < PAGE_LIMIT &&
                     <p className="txt-primary txt-md mg-right-xs">....</p>
                 }
                 {
-                    pgNumber < 42 &&
+                    pgNumber < PAGE_LIMIT &&
                     <button onClick={handleNextClick} className="btn-outlined b-solid b-primary txt-md txt-primary pd-xs">
                         next
                     </button>
