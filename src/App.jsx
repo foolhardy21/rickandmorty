@@ -101,7 +101,7 @@ const App = () => {
             <ul className="flx">
               {
                 episodes?.map(ep =>
-                  <li className="txt-primary txt-md pd-xs mg-right-xs">{ep}</li>)
+                  <li key={ep} className="txt-primary txt-md pd-xs mg-right-xs">{ep}</li>)
               }
             </ul>
           </div>
