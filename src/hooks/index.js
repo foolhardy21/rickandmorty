@@ -1,3 +1,3 @@
-export { useOrigin } from './useOrigin'
-export { useLocation } from './useLocation'
-export { useEpisodes } from './useEpisodes'
+export { useOrigin } from "./useOrigin";
+export { useLocation } from "./useLocation";
+export { useEpisodes } from "./useEpisodes";

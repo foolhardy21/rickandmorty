@@ -1,9 +1,9 @@
 import { createContext, useContext, useState } from "react";
 
-const PageContext = createContext(1)
+const PageContext = createContext(1);
 
 export const PageProvider = ({ children }) => {
-    const [pgNumber, setPgNumber] = useState(1)
+    const [pgNumber, setPgNumber] = useState(1);
 
     return (
         <PageContext.Provider
@@ -14,7 +14,7 @@ export const PageProvider = ({ children }) => {
         >
             {children}
         </PageContext.Provider>
-    )
-}
+    );
+};
 
-export const usePage = () => useContext(PageContext)
+export const usePage = () => useContext(PageContext);

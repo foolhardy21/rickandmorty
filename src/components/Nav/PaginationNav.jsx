@@ -1,5 +1,5 @@
 import { usePage } from "contexts";
-import styles from './nav.module.css'
+import styles from "./nav.module.css";
 
 let pgNumbers = []
 for (let i = 1; i <= 42; i++) {

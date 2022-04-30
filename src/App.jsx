@@ -4,7 +4,7 @@ import { Header } from "components/Header";
 import { PaginationNav } from "components/Nav";
 import { CharacterCard, CharacterModal } from "components/Character";
 import { usePage, useModal } from "contexts";
-import styles from 'components/Character/character.module.css'
+import styles from "components/Character/character.module.css";
 
 const App = () => {
   const [characters, setCharacters] = useState([])

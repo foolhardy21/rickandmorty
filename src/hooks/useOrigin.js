@@ -14,4 +14,4 @@ export const useOrigin = (character) => {
     }, []);
 
     return [origin]
-}
+};

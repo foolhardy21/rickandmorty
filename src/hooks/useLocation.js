@@ -11,7 +11,7 @@ export const useLocation = (character) => {
                 setLocation(response.data);
             }
         })();
-    }, [])
+    }, []);
 
     return [location]
-}
+};

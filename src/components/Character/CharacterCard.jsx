@@ -1,5 +1,5 @@
 import { useModal } from "contexts";
-import styles from './character.module.css'
+import styles from "./character.module.css";
 
 const CharacterCard = ({ character }) => {
     const { setModal } = useModal()

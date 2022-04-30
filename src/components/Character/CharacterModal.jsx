@@ -1,6 +1,6 @@
 import { useModal } from "contexts";
-import styles from './character.module.css'
 import { useEpisodes, useLocation, useOrigin } from "hooks";
+import styles from "./character.module.css";
 
 const CharacterModal = ({ character }) => {
     const { setModal } = useModal()
@@ -53,7 +53,7 @@ const CharacterModal = ({ character }) => {
 
             </article>
         </section>
-    )
-}
+    );
+};
 
-export default CharacterModal
+export default CharacterModal;
