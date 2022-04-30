@@ -2,6 +2,11 @@
   border-bottom: solid thin var(--clr-off-primary);
 }
 
+.pgNav {
+  width: 60vw;
+  overflow-x: auto;
+}
+
 .cardsGrid {
   gap: 1rem;
   place-content: center;
