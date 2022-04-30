@@ -6,17 +6,19 @@ import PaginationNav from "./components/PaginationNav";
 import styles from './App.module.css'
 import { useModal } from "./contexts/modal.context";
 import CharacterModal from "./components/CharacterModal";
+import { usePage } from "./contexts/page.context";
 
 const App = () => {
   const [characters, setCharacters] = useState([])
   const { modal } = useModal()
+  const { pgNumber } = usePage()
 
   useEffect(() => {
     (async () => {
-      const response = await axios.get("https://rickandmortyapi.com/api/character?page=1")
+      const response = await axios.get(`https://rickandmortyapi.com/api/character?page=${pgNumber}`)
       setCharacters(response.data.results)
     })()
-  }, [])
+  }, [pgNumber])
 
   return (
     <div
