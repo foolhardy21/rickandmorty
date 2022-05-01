@@ -1,3 +1,37 @@
 .pgHeader {
   border-bottom: solid thin var(--clr-off-primary);
 }
+
+.cardsGrid {
+  gap: 1rem;
+  place-content: center;
+  place-items: center;
+}
+
+.noScroll {
+  overflow: hidden;
+}
+
+.characterCard {
+  width: 20rem;
+}
+
+.charImage {
+  width: 100%;
+  object-fit: cover;
+}
+
+.charModal {
+  height: 60%;
+  overflow-y: auto;
+}
+
+.charModalImg {
+  width: 40%;
+  height: 40%;
+  object-fit: cover;
+}
+
+.episodeList {
+  word-wrap: break-word;
+}
