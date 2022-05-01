@@ -1,41 +1,12 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import styles from '../App.module.css'
-import { useModal } from "../contexts/modal.context";
+import { useModal } from "contexts";
+import { useEpisodes, useLocation, useOrigin } from "hooks";
+import styles from "./character.module.css";
 
 const CharacterModal = ({ character }) => {
-    const [origin, setOrigin] = useState({});
-    const [location, setLocation] = useState({});
-    const [episodes, setEpisodes] = useState([]);
     const { setModal } = useModal()
-
-    useEffect(() => {
-        (async () => {
-            if (character.origin.url) {
-                const response = await axios.get(character.origin.url);
-                setOrigin(response.data);
-            }
-        })();
-    }, []);
-
-    useEffect(() => {
-        (async () => {
-            if (character.location.url) {
-                const response = await axios.get(character.location.url);
-                setLocation(response.data);
-            }
-        })();
-    }, [])
-
-    useEffect(() => {
-        (async () => {
-            const episodeNames = await Promise.allSettled(character.episode.map(async (ep) => {
-                const response = await axios.get(ep);
-                return response.data.name;
-            }));
-            setEpisodes(episodeNames?.map(ep => ep.value));
-        })();
-    }, []);
+    const [origin] = useOrigin(character)
+    const [location] = useLocation(character)
+    const [episodes] = useEpisodes(character)
 
     const handleCloseClick = () => {
         setModal(m => ({ ...m, visible: false, value: {} }))
@@ -82,7 +53,7 @@ const CharacterModal = ({ character }) => {
 
             </article>
         </section>
-    )
-}
+    );
+};
 
-export default CharacterModal
+export default CharacterModal;

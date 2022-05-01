@@ -1,0 +1,1 @@
+export { API_GET_CHARACTERS, PAGE_LIMIT } from './constants.util'
