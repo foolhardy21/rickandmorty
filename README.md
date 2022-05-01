@@ -4,6 +4,7 @@ This Web app uses the Rick and Morty API to display all the characters and their
 
 - Libraries and tech used:
 
+  - I have used my own component library called AkiraUI that can be found [here](https://deploy-preview-8--zen-bartik-5ee75e.netlify.app/)
   - React Hooks
   - Custom Hooks
   - Async-await for API calls
