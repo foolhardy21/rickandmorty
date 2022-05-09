@@ -19,7 +19,6 @@ const App = () => {
     (async () => {
       try {
         const response = await axios.get(`${API_GET_CHARACTERS}${pgNumber}`)
-        console.log(response.data.results)
         setCharacters(response.data.results)
       } catch (e) {
         console.log(e.status)

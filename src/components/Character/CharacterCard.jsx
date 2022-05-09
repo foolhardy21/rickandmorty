@@ -10,10 +10,9 @@ const CharacterCard = ({ character }) => {
 
     return (
         <article className={` ${styles.characterCard} pos-relative card-shadow-xs pd-xs`}>
-            <div>
-
+            <div className={styles.charInfo}>
                 <div className="pos-relative">
-                    <img srcSet={character?.image} alt={character?.name} className={styles.charImage} />
+                    <img srcSet={character?.image} alt={character?.name} className={styles.charImg} />
                     <p className="txt-md txt-500 bg-primary txt-primary txt-cap pos-absolute tr-1 pd-xs">{character?.name}</p>
                 </div>
                 <div className="flx flx-min-center mg-top-xs mg-left-xs mg-btm-s">

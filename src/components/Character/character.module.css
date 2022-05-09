@@ -1,7 +1,6 @@
 .cardsGrid {
   gap: 1rem;
   place-content: center;
-  /* place-items: center; */
 }
 
 .noScroll {
@@ -15,15 +14,15 @@
   justify-content: space-between;
 }
 
+.charInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .charImg {
   width: 100%;
   object-fit: cover;
-}
-
-.moreBtn {
-  /* position: absolute;
-  bottom: 0;
-  right: 0; */
 }
 
 .charModal {
