@@ -4,7 +4,7 @@ const EpisodesContext = createContext([])
 
 export const EpisodesProvider = ({ children }) => {
     const [allEpisodes, setAllEpisodes] = useState([])
-    console.log(allEpisodes)
+
     return (
         <EpisodesContext.Provider
             value={{
